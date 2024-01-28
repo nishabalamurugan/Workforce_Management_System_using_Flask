@@ -1,0 +1,89 @@
+<html>
+    <head>
+        <title>Employee Records</title>
+        <style>
+            h2{
+                color: black;
+                background-color: #01987A;
+                margin:5px 5px 30px 5px;
+                padding:30px;
+                border:2px solid black;
+                text-align: center;
+            }
+            table{
+                border-collapse: collapse;
+                width: 100%;
+            }
+            th{
+                background-color: #01987A;
+                border: 1px solid #dddddd;
+                padding: 8px;
+                text-align: left;
+            }
+            td{
+                border: 1px solid #dddddd;
+                padding:8px;
+            }
+            tr:nth-child(even)
+            {
+                background-color:#F3F3F3;
+            }
+             tr:hover {
+                background-color: #dddddd;
+            }
+            .deletebutton{
+                margin-left:10px;
+                color:#ff3333;
+                border-color:#ff3333;
+            }
+            .deletebutton:hover{
+                background-color: #ffe6e6;
+            }
+            .editbutton{
+                margin-left:10px;
+                color:#b3b300;
+                border-color:#b3b300;
+            }
+            .editbutton:hover{
+                background-color: #ffffb3;
+            }
+        </style>
+    </head>
+    <body>
+        <center><h2>WORKFORCE MANAGEMENT SYSTEM</h2></center>
+        <table>
+            <tr>
+                <th>Employee ID</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Email</th>
+                <th>Phone Number</th>
+                <th>Date of Hiring</th>
+                <th>Job ID</th>
+                <th>Salary</th>
+                <th>Manager ID</th>
+                <th>Department ID</th>
+                <th>Edit Data</th>
+                <th>Delete Data</th>
+            </tr>
+            {% for item in data %}
+            <tr>
+                <td>{{ item['Employee_Id'] }}</td>
+                <td>{{ item['First_Name'] }}</td>
+                <td>{{ item['Last_Name'] }}</td>
+                <td>{{ item['Email'] }}</td>
+                <td>{{ item['Phone_Number'] }}</td>
+                <td>{{ item['Date_of_Hiring'] }}</td>
+                <td>{{ item['Job_Id'] }}</td>
+                <td>{{ item['Salary'] }}</td>
+                <td>{{ item['Manager_Id'] }}</td>
+                <td>{{ item['Department_Id'] }}</td>
+                <td><form action="/edit/{{item['Employee_Id']}}"><button class="editbutton">EDIT</button></form></td>
+                <td><form action="delete/{{item['Employee_Id']}}"><button class="deletebutton">DELETE</button></form></td>
+            </tr>
+            {% endfor %}
+        </table>
+        <br>
+        <center><a href="/Register_Employee">Register Employee</a></center>
+    </body>
+</html>
