@@ -25,12 +25,12 @@ def login():
         error_message="OOPS! INVALID CREDENTIALS PROVIDED.\n Ensure that the username and password are correct."
         return render_template('Login.html',data=error_message)
 
-@app.route('/Employee_Records')
+@app.route('/employee_records')
 def Show_Employee_Records():
     data=list(collection.find())
     return render_template("Employee_Records.html",data=data)
 
-@app.route('/Register_Employee',methods=['GET'])
+@app.route('/register_employee',methods=['GET'])
 def Register_Employee():
     return render_template("Register_Employee.html")
 
@@ -49,7 +49,7 @@ def Add_Employee_Data():
         'Department_Id':request.form['department_id']
     }
     collection.insert_one(New_Employee)
-    return redirect('/Employee_Records');
+    return redirect('/employee_records');
 
 @app.route('/edit/<id>',methods=['GET'])
 def Edit_Employee_Data(id):
@@ -71,12 +71,24 @@ def Update_Employee_Data(id):
         'Department_Id':request.form['department_id']
     }
     collection.update_one({'Employee_Id':id},{'$set':Updated_Data})
-    return redirect('/Employee_Records');
+    return redirect('/employee_records');
 
 @app.route('/delete/<id>')
 def Delete_Employee_Data(id):
     collection.delete_one({'Employee_Id':id})
-    return redirect('/Employee_Records');
+    return redirect('/employee_records');
+
+@app.route('/filterbyemployeeid',methods=['POST'])
+def  FilterByEmployeeId():
+    emp_id=request.form['employee_id']
+    item=list(collection.find({"Employee_Id":emp_id}));
+    return render_template('Employee_Records.html',data=item)
+
+@app.route('/filterbyjobid',methods=['POST'])
+def FilterByJobId():
+    job_id=request.form['job_id']
+    item=list(collection.find({"Job_Id":job_id}))
+    return render_template('Employee_Records.html',data=item)
 
 
 if(__name__=='__main__'):
