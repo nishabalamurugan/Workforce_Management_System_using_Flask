@@ -51,6 +51,10 @@
     </head>
     <body>
         <center><h2>WORKFORCE MANAGEMENT SYSTEM</h2></center>
+        <p>FILTER BY</p><form method="post" action="/filterbyemployeeid">
+        <input type="text" placeholder="enter employee ID" id="employee_id" name="employee_id"></input></form>
+        <form method="post" action="/filterbyjobid">
+        <input type="text" placeholder="enter job ID" name="job_id"></input></form>
         <table>
             <tr>
                 <th>Employee ID</th>
@@ -79,11 +83,11 @@
                 <td>{{ item['Manager_Id'] }}</td>
                 <td>{{ item['Department_Id'] }}</td>
                 <td><form action="/edit/{{item['Employee_Id']}}"><button class="editbutton">EDIT</button></form></td>
-                <td><form action="delete/{{item['Employee_Id']}}"><button class="deletebutton">DELETE</button></form></td>
+                <td><form action="/delete/{{item['Employee_Id']}}"><button class="deletebutton">DELETE</button></form></td>
             </tr>
             {% endfor %}
         </table>
         <br>
-        <center><a href="/Register_Employee">Register Employee</a></center>
+        <center><a href="/register_employee">Register Employee</a></center>
     </body>
 </html>
