@@ -1,0 +1,58 @@
+<html>
+    <head>
+        <title>Add Employee Details</title>
+    </head>
+    <style>
+        h2{
+                color: black;
+                background-color: #01987A;
+                margin:5px 5px 30px 5px;
+                padding:30px;
+                border:2px solid black;
+                text-align: center;
+            }
+            
+            input[type=submit]
+            {
+                color:black;
+                font-weight: bold;
+                background-color: #01987A;
+                width: 150px;
+                height: 30px;
+            }
+            
+            
+            
+    </style>
+    <body>
+    <h2>WORKFORCE MANAGEMENT SYSTEM</h2>
+    <center>
+    <h3>NEW EMPLOYEE REGISTRATION FORM</h3>
+    <p>Please complete the required fields to register a new employee to the system</p>
+        <div class="registration_form">
+    <form method="post" action="/create">
+        Enter Employee_Id:
+        <input type="text" name="employee_id" required><br><br>
+        Enter  First Name  :
+        <input type="text" name="first_name" required><br><br>
+        Enter Last Name:
+        <input type="text" name="last_name" required><br><br>
+        Enter E-mail Id:
+        <input type="email" name="email" required><br><br>
+        Enter Phone No.:
+        <input type="text" name="phone_number" pattern="[0-9]{10}" title="Please enter a 10-digit phone number" required><br><br>
+        Enter Date of Hiring:
+        <input type="date" name="hire_date" ><br><br>
+        Enter Job Id:
+        <input type="text" name="job_id" ><br><br>
+        Enter Salary:
+        <input type="number" name="salary"><br><br>
+        Enter Manager Id:
+        <input type="number" name="manager_id" required><br><br>
+        Enter Department Id:
+        <input type="number" name="department_id" required><br><br>
+        <input type="submit" value="REGISTER">
+    </form></div>
+</center>
+    </body>
+</html>

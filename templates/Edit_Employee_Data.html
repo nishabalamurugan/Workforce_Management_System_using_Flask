@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Edit Employee Data</title>
+    
+    <style>
+        h2{
+                color: black;
+                background-color: #01987A;
+                margin:5px 5px 30px 5px;
+                padding:30px;
+                border:2px solid black;
+                text-align: center;
+            }
+            
+            input[type=submit]
+            {
+                color:black;
+                font-weight: bold;
+                background-color: #01987A;
+                width: 150px;
+                height: 30px;
+            }
+            
+            
+            
+    </style>
+</head>
+<body>
+    <h2>WORKFORCE MANAGEMENT SYSTEM</h2><center>
+    <h1>Edit Employee Data</h1>
+    <form method="post" action="/update/{{data.Employee_Id}}">
+        Enter Employee_Id:
+        <input type="text" name="employee_id" value="{{ data.Employee_Id }}"><br><br>
+        Enter First Name:
+        <input type="text" name="first_name" value="{{ data.First_Name }}"><br><br>
+        Enter Last Name:
+        <input type="text" name="last_name" value="{{ data.Last_Name }}"><br><br>
+        Enter Email Id:
+        <input type="email" name="email" value="{{ data.Email }}"><br><br>
+        Enter Phone Number:
+        <input type="number" name="phone_number" value="{{ data.Phone_Number }}"><br><br>
+        Enter Date of Hiring:
+        <input type="date" name="hire_date" value="{{ data.Date_of_Hiring }}"><br><br>
+        Enter Job Id:
+        <input type="text" name="job_id" value="{{ data['Job_Id'] }}"><br><br>
+        Enter Salary:
+        <input type="number" name="salary" value="{{ data.Salary }}"><br><br>
+        Enter Manager Id:
+        <input type="number" name="manager_id" value="{{ data.Manager_Id }}"><br><br>
+        Enter Department Id:
+        <input type="number" name="department_id" value="{{ data.Department_Id }}"><br><br>
+        <input type="submit" value="UPDATE">
+    </form></center>
+
+</body>
+</html>
