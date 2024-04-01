@@ -15,14 +15,13 @@ collection = db['Employee_collection']
 @app.route('/')
 def index():
     return render_template('Login.html')
-#comcast.net
-#token=ghp_89anhyuijkmnhtyuhyjik754567890ok**$
+
 #authentication
 @app.route('/login',methods=['POST'])
 def login():
     User_name=request.form['username']
     Password=request.form['password']
-    if(User_name=='nisha' and Password=='123456'):
+    if(User_name=='' and Password==''):
         return redirect(url_for('Show_Employee_Records'))
     else:
         error_message="OOPS! INVALID CREDENTIALS PROVIDED.\n Ensure that the username and password are correct."
