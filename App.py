@@ -21,7 +21,7 @@ def index():
 def login():
     User_name=request.form['username']
     Password=request.form['password']
-    if(User_name=='' and Password=='sdfghj3456789$'):
+    if(User_name=='' and Password=='123456'):
         return redirect(url_for('Show_Employee_Records'))
     else:
         error_message="OOPS! INVALID CREDENTIALS PROVIDED.\n Ensure that the username and password are correct."
