@@ -3,7 +3,9 @@ from flask import Flask,render_template,request,url_for,redirect
 from pymongo import MongoClient
 from bson import ObjectId
 app=Flask(__name__)
-
+password='12345678gh'
+token='agdhdjeirn26383949'
+password='agdjtyujeg'
 
 # MongoDB configuration
 client = MongoClient('mongodb://localhost:27017/')
