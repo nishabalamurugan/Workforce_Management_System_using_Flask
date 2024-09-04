@@ -5,6 +5,8 @@ from bson import ObjectId
 app=Flask(__name__)
 password='12345678gh'
 token='agdhdjeirn26383949'
+token='abcdkdfjni1234345'
+token='ufdifjdknkj234678'
 password='agdjtyujeg'
 
 # MongoDB configuration
